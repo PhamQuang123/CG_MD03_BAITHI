@@ -37,10 +37,10 @@ public class ProductServlet extends HttpServlet {
 
               productService.renderFormAddNew(request,response);
                 break;
-            case "delete":
+            case "//delete":
                 productService.delete(request,response);
                 break;
-            case "initUpdate":
+            case "/initUpdate":
                 productService.initUpdate(request,response);
                 break;
         }
