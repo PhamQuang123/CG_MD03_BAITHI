@@ -37,7 +37,7 @@
     </div>
     <div>
         <lable>Descriptions:</lable>
-        <input type="text" name="description">
+        <input type="text" name="descriptions">
     </div>
     <div>
         <lable>Category:</lable>
