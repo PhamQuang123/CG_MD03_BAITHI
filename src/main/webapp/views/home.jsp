@@ -13,7 +13,7 @@
 </head>
 <body>
 <a href="/product/addNew">Add Product</a>
-<table>
+<table border="1px solid red">
   <thead>
   <tr>
     <th>STT</th>
@@ -21,8 +21,9 @@
     <th>Price</th>
     <th>Quantity</th>
     <th>Color</th>
+    <th>Descriptions</th>
     <th>Category</th>
-    <th>Action</th>
+    <th colspan="2">Action</th>
   </tr>
   </thead>
   <tbody>
@@ -37,13 +38,14 @@
       <td>${prod.descriptions}</td>
       <td>${prod.category.getCategoryName()}</td>
       <td>
-        <a href="">Edit</a>
+        <a href="/product/initUpdate?productId=${prod.productId}">Edit</a>
         </td>
       <td>
-        <a href="">Delete</a>
+        <a href="/product/delete?productId=${prod.productId}">Delete</a>
       </td>
     </tr>
     <c:set var="i" value="${i+1}"></c:set>
+
   </c:forEach>
   </tbody>
 </table>

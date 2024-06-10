@@ -77,14 +77,21 @@ public class ProductServiceIMPl implements ProductService {
     @Override
     public void delete(HttpServletRequest request, HttpServletResponse response) {
         productRepository.delete(Integer.parseInt(request.getParameter("productId")));
+        try {
+            response.sendRedirect("/product/listProduct");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public void initUpdate(HttpServletRequest request, HttpServletResponse response) {
         Product product = productRepository.findProductById(Integer.parseInt(request.getParameter("productId")));
-request.setAttribute("product", product);
+        request.setAttribute("product", product);
+        List<Category> listCategory = categoryService.findAll();
+        request.setAttribute("listCategory",listCategory);
         try {
-            request.getRequestDispatcher("/views/update.jsp").forward(request,response);
+            request.getRequestDispatcher("/views/update.jsp").forward(request, response);
         } catch (ServletException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {

@@ -95,7 +95,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     @Override
     public boolean update(Product product) {
         String sql = "update product " +
-                "set product_name = ?, price = ?, quantity = ?, color = ?, desscriptions = ?, category_id = ? where product_id = ?";
+                "set product_name = ?, price = ?, quantity = ?, color = ?, descriptions = ?, category_id = ? where product_id = ?";
         boolean result = false;
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
@@ -119,7 +119,7 @@ public class ProductRepositoryImpl implements ProductRepository {
 
     @Override
     public Product findProductById(int id) {
-        String sql = "select * from productwhere product_id = ?";
+        String sql = "select * from product where product_id = ?";
         Product product = null;
         try {
             PreparedStatement pre = conn.prepareStatement(sql);

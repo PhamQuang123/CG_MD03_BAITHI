@@ -48,6 +48,7 @@
   <div>
     <lable>Category:</lable>
     <select name="categoryId" >
+      <option value="${product.category.getCategoryId()}">${product.category.getCategoryName()}</option>
       <c:forEach items="${listCategory}" var="c">
         <option value="${c.categoryId}">${c.categoryName}</option>
       </c:forEach>>
