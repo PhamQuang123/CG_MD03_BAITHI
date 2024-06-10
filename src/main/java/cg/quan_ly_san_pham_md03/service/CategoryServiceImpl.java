@@ -39,7 +39,7 @@ public class CategoryServiceImpl {
     }
 
     public Category findCategoryById(int id){
-        String sql = "select * from category where category_íd = ?";
+        String sql = "select * from category where category_id = ?";
         Category category = null;
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
