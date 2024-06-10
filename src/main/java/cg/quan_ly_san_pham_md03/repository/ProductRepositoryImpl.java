@@ -146,4 +146,35 @@ public class ProductRepositoryImpl implements ProductRepository {
 
         return product;
     }
+
+    @Override
+    public List<Product> findByName(String productName) {
+        String sql = "select * from product where product_name like '%' ? '%'";
+        List<Product> listProduct = null;
+        try {
+            PreparedStatement pre = conn.prepareStatement(sql);
+            pre.setString(1, productName);
+            ResultSet rs = pre.executeQuery();
+            listProduct = new ArrayList<>();
+            while (rs.next()) {
+              Product  product = new Product();
+                product.setProductId(rs.getInt("product_id"));
+                product.setProductName(rs.getString("product_name"));
+                product.setPrice(rs.getDouble("price"));
+                product.setQuantity(rs.getInt("quantity"));
+                product.setColor(rs.getString("color"));
+                product.setDescriptions(rs.getString("descriptions"));
+                int categoryId = rs.getInt("category_id");
+                Category category = categoryService.findCategoryById(categoryId);
+                product.setCategory(category);
+                listProduct.add(product);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        return listProduct;
+    }
 }

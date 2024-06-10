@@ -16,7 +16,7 @@
 <form action="/product/doUpdate" method="post">
   <div>
     <lable>Product Id:</lable>
-    <input type="text" name="productId" value="${product.productId}">
+    <input type="text" name="productId" value="${product.productId}" readonly>
   </div>
   <div>
     <lable>Product Name:</lable>
@@ -24,11 +24,11 @@
   </div>
   <div>
     <lable>Price:</lable>
-    <input type="text" name="price" value="${product.price}">
+    <input type="number" name="price" value="${product.price}">
   </div>
   <div>
     <lable>Quantity:</lable>
-    <input type="text" name="quantity" value="${product.quantity}">
+    <input type="number" name="quantity" value="${product.quantity}">
   </div>
   <div>
     <lable>Color:</lable>

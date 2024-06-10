@@ -57,6 +57,9 @@ public class ProductServlet extends HttpServlet {
             case "/doUpdate":
                 productService.update(request,response);
                 break;
+            case "/search":
+                productService.findByName(request,response);
+                break;
         }
     }
 }

@@ -117,4 +117,17 @@ public class ProductServiceIMPl implements ProductService {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public void findByName(HttpServletRequest request, HttpServletResponse response) {
+        List<Product> listProduct = productRepository.findByName(request.getParameter("productName"));
+        request.setAttribute("listProduct",listProduct);
+        try {
+            request.getRequestDispatcher("/views/home.jsp").forward(request,response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

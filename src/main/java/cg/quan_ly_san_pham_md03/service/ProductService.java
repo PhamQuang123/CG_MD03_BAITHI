@@ -14,4 +14,5 @@ public interface ProductService {
     void delete(HttpServletRequest request, HttpServletResponse response);
     void initUpdate(HttpServletRequest request, HttpServletResponse response);
     void update(HttpServletRequest request, HttpServletResponse response);
+    void findByName(HttpServletRequest request, HttpServletResponse response);
 }

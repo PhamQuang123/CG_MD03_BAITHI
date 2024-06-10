@@ -13,6 +13,10 @@
 </head>
 <body>
 <a href="/product/addNew">Add Product</a>
+<form action="/product/search" method="post">
+  <input type="text" name="productName">
+  <button type="submit">Search</button>
+</form>
 <table border="1px solid red">
   <thead>
   <tr>
@@ -41,7 +45,7 @@
         <a href="/product/initUpdate?productId=${prod.productId}">Edit</a>
         </td>
       <td>
-        <a href="/product/delete?productId=${prod.productId}">Delete</a>
+        <a href="/product/delete?productId=${prod.productId}" onclick="return confirm('Bạn có chắc muốn xoá không')">Delete</a>
       </td>
     </tr>
     <c:set var="i" value="${i+1}"></c:set>
